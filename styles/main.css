@@ -34,3 +34,12 @@ h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
 }
+
+.navbar {
+    --bs-navbar-brand-margin-end: 0;
+}
+
+.carrito {
+    margin-left: 15px;
+    
+}
