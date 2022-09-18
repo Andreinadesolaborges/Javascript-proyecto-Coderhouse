@@ -30,9 +30,7 @@ const verificarStock = (producto, cantidad) => {
     if (producto.stock >= cantidad)
     {
         let index = inventarioProductos.indexOf(producto);
-        console.log(index);
         inventarioProductos[index].actualizarStock(cantidad);
-        console.log(inventarioProductos[index].stock);
         return true;
     }
     else {
@@ -81,8 +79,6 @@ const agregarCarrito = () => {
         }
 
         let arrayFiltrado = inventarioProductos.filter (producto => producto.nombre == productoSeleccionado);
-
-        console.log(arrayFiltrado);
 
         const producto = arrayFiltrado.find(producto => producto.color === colorSeleccionado);
 
