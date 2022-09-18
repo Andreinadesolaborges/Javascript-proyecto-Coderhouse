@@ -51,12 +51,16 @@ const calcularEnvio = (subtotal) => {
     {
         alert("Tenés envio gratis.");
     }
-    else {
+    else if (subtotal!=0){
         alert("El costo del envío es $" + precioEnvio);
         subtotal += precioEnvio;
     }
 
     return subtotal;
+}
+
+const ordenarMenorMayor = () => {
+    inventarioProductos.sort((a,b)=> a.precio - b.precio);
 }
 
 const agregarCarrito = () => {
@@ -101,10 +105,17 @@ const agregarCarrito = () => {
     } while (continuarComprando)
 
     let total = calcularEnvio(subtotal);
-    alert("El total de tu compra es $" + total);
+    if (total!=0)
+    {
+        alert("El total de tu compra es $" + total);
+    }
 }
 
 function iniciarApp () {
     alert("Inicia simulador de compra");
+    if (confirm("¿Querés ordenar la lista de productos del más barato al más caro?"))
+    {
+        ordenarMenorMayor()
+    };
     agregarCarrito();
 }
