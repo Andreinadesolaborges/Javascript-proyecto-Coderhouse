@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 a {
@@ -30,7 +30,7 @@ h3 {
     font-weight: 800;
 }
 
-.form-control{
+.form-control {
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
 }
@@ -40,8 +40,8 @@ h3 {
 }
 
 .colorBgBtn {
-    background: rgb(102,16,242);
-    background: linear-gradient(308deg, rgba(102,16,242,1) 0%, rgba(144,19,254,1) 50%);
+    background: rgb(102, 16, 242);
+    background: linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%);
     --bs-btn-border-color: none;
 }
 
@@ -51,10 +51,26 @@ h3 {
     opacity: .9;
 }
 
-.form-control:focus{
+.form-control:focus {
     color: #212529;
     background-color: #fff;
     border-color: #2125294f;
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(103, 16, 242, 0.2);
+}
+
+.cantidad-texto {
+    font-size: 0.8rem;
+}
+
+.alert-success {
+    --bs-alert-color: rgb(102, 16, 242);
+    --bs-alert-bg: rgba(103, 16, 242, 0.2);
+    --bs-alert-border-color: rgb(102, 16, 242);
+}
+
+.productoEnCarrito{
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }

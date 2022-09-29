@@ -12,6 +12,9 @@ class Producto {
     actualizarStock(cantidad) {
         this.stock = this.stock - cantidad;
     }
+    sumarStock(cantidad){
+        this.stock = this.stock + cantidad;
+    }
 }
 
 //Variables//
@@ -196,9 +199,16 @@ const mostrarProductos = (inventarioProductos) => {
         </div>`
         contenedorProductos.appendChild(div)
 
-        const boton = document.getElementById (`boton${producto.id}`)
-        boton.addEventListener('click', ()=>{
-            alert(`Se agrego el producto ${producto.nombre} ${producto.color}`)
+        const boton = document.getElementById(`boton${producto.id}`)
+
+        boton.addEventListener('click', () => {
+            carritoIndex(producto.id)
+            alert(`Se agrego el producto ${producto.nombre} ${producto.color}`, 'success')
+            scroll(0, 0);
+            setTimeout(function () {
+                // Closing the alert
+                $('#alert').alert('close');
+            }, 2000);
         })
     })
 }
@@ -232,7 +242,7 @@ buscador.onkeyup = () => {
             var hallado = 0;
             for (var filtro of palabrasEnFiltro) {
                 if (h3.innerHTML.toUpperCase().indexOf(filtro) > -1) {
-                    hallado++;    
+                    hallado++;
                 }
             }
             if (hallado === palabrasEnFiltro.length) {

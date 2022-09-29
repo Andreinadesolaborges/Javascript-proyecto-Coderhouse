@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Javascript - Andreina De Sola</title>
 </head>
 
@@ -36,6 +37,7 @@
         </nav>
     </header>
     <main class="container-fluid">
+        <div id="liveAlertPlaceholder"></div>
         <div class="row m-4">
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -46,8 +48,9 @@
                             <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div id="carrito-contenedor" class="modal-body">
-                            ...
+                        <div id="carrito-contenedor" class="modal-body"></div>
+                        <div id="carrito-subtotal" class="modal-body">
+                            <h5>Subtotal : $0</h5>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -74,14 +77,19 @@
     </main>
 
 
+     <!--JQuery-->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
-
+    
     <!--Mi script-->
     <script src="app.js"></script>
     <script src="carrito.js"></script>
+    <script src="alerta.js"></script>
+    
 </body>
 
 </html>
