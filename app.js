@@ -195,6 +195,11 @@ const mostrarProductos = (inventarioProductos) => {
             </div>
         </div>`
         contenedorProductos.appendChild(div)
+
+        const boton = document.getElementById (`boton${producto.id}`)
+        boton.addEventListener('click', ()=>{
+            alert(`Se agrego el producto ${producto.nombre} ${producto.color}`)
+        })
     })
 }
 

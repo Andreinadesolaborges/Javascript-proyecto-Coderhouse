@@ -25,29 +25,51 @@
                     Tienda
                 </a>
                 <form class="d-flex" role="search">
-                    <input id="miInput" class="form-control me-3" type="search" placeholder="Buscador" aria-label="Search">
-                    <a class="navbar-brand" href="#">
-                        <img src="img/cart.svg" alt="Logo" width="30" height="24"
-                            class="d-inline-block align-text-top carrito">
-                    </a>
+                    <input id="miInput" class="form-control me-3" type="text" placeholder="Buscador"
+                        aria-label="Search">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img id="carrito" src="img/cart.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-center">
+                    </button>
                 </form>
             </div>
         </nav>
     </header>
     <main class="container-fluid">
         <div class="row m-4">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="carrito-contenedor" class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary colorBgBtn">Continuar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--<div class="col-sm-4 text-center p-3">
                 <button type="button" onclick="iniciarApp()" class="btn btn-dark p-3">Iniciar Simulador</button>
             </div>-->
             <div class="col-sm-6 text-center p-2">
-                <button type="button" onclick="sortMenor()" class="btn btn-dark p-3">Ordenar por precio (menor a mayor)</button>
+                <button type="button" onclick="sortMenor()" class="btn btn-dark p-3">Ordenar por precio (menor a
+                    mayor)</button>
             </div>
             <div class="col-sm-6 text-center p-2">
-                <button type="button" onclick="sortMayor()" class="btn btn-dark p-3">Ordenar por precio (mayor a menor)</button>
+                <button type="button" onclick="sortMayor()" class="btn btn-dark p-3">Ordenar por precio (mayor a
+                    menor)</button>
             </div>
         </div>
         <div id="containerProductos" class="row m-4">
-            
+
         </div>
     </main>
 
@@ -59,6 +81,7 @@
 
     <!--Mi script-->
     <script src="app.js"></script>
+    <script src="carrito.js"></script>
 </body>
 
 </html>
