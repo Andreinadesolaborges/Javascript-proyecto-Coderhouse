@@ -48,6 +48,14 @@ const ordenarMayorMenor = () => {
     inventarioProductos.sort((a, b) => b.precio - a.precio);
 }
 
+let sortMayorBtn = document.getElementById("buttonSortMayor");
+
+sortMayorBtn.addEventListener("click", sortMayor);
+
+let sortMenorBtn = document.getElementById("buttonSortMenor");
+
+sortMenorBtn.addEventListener("click", sortMenor);
+
 function sortMenor() {
     ordenarMenorMayor();
     actualizarListaProductos();
