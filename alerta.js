@@ -12,5 +12,6 @@ const alert = (message, type) => {
     alertPlaceholder.append(wrapper)
 }
 
+export {alert};
 
 
