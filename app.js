@@ -1,4 +1,4 @@
-import {carritoIndex} from "./carrito.js";
+import {validarProductoRepetido} from "./carrito.js";
 import {alert} from "./alerta.js";
 //Clases y constructores//
 
@@ -21,12 +21,12 @@ class Producto {
 
 //Variables//
 const inventarioProductos = [];
-inventarioProductos.push(new Producto(1, "Sony Auricular", 19999, 5, "Negro", "img/audifonos-1.png"));
-inventarioProductos.push(new Producto(2, "Sony Auricular", 30999, 3, "Blanco", "img/audifonos-2.png"));
-inventarioProductos.push(new Producto(3, "Lenovo Auricular", 14999, 7, "Gris", "img/audifonos-3.png"));
-inventarioProductos.push(new Producto(4, "Sony Auricular", 24999, 2, "Rosa", "img/audifonos-4.png"));
-inventarioProductos.push(new Producto(5, "JBL Auricular", 25999, 4, "Negro", "img/audifonos-5.png"));
-inventarioProductos.push(new Producto(6, "Apple Airpods", 30999, 10, "Blanco", "img/audifonos-6.png"));
+inventarioProductos.push(new Producto(1, "Sony Auricular", 19999, 1, "Negro", "img/audifonos-1.png"));
+inventarioProductos.push(new Producto(2, "Sony Auricular", 30999, 1, "Blanco", "img/audifonos-2.png"));
+inventarioProductos.push(new Producto(3, "Lenovo Auricular", 14999, 1, "Gris", "img/audifonos-3.png"));
+inventarioProductos.push(new Producto(4, "Sony Auricular", 24999, 1, "Rosa", "img/audifonos-4.png"));
+inventarioProductos.push(new Producto(5, "JBL Auricular", 25999, 1, "Negro", "img/audifonos-5.png"));
+inventarioProductos.push(new Producto(6, "Apple Airpods", 30999, 1, "Blanco", "img/audifonos-6.png"));
 
 const verificarStock = (producto, cantidad) => {
 
@@ -90,7 +90,7 @@ const mostrarProductos = (inventarioProductos) => {
         const boton = document.getElementById(`boton${producto.id}`)
 
         boton.addEventListener('click', () => {
-            carritoIndex(producto.id)
+            validarProductoRepetido(producto.id)
             alert(`Se agrego el producto ${producto.nombre} ${producto.color}`, 'success')
             scroll(0, 0);
             setTimeout(function () {
