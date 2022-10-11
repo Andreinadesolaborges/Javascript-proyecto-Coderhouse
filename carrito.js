@@ -44,7 +44,7 @@ const carritoIndex = (productoID) => {
             div.innerHTML = `<p id="precio${producto.id}">${producto.nombre} ${producto.color} $${producto.precio}</p>
             <p class="cantidad-texto" id="cantidad${producto.id}">Cantidad: ${producto.stock}</p>
             <button id="eliminar${producto.id}" value='${producto.id}'  class="btn btn-dark boton-eliminar">
-            <i class="bi bi-trash-fill" value='${producto.id}'></i></button>`
+            x</button>`
             contenedorCarrito.appendChild(div)      
     
     }
@@ -82,7 +82,7 @@ const pintarCarrito = (carrito) => {
         div.innerHTML = `<p id="precio${producto.id}">${producto.nombre} ${producto.color} $${producto.precio}</p>
         <p class="cantidad-texto" id="cantidad${producto.id}">Cantidad: ${producto.stock}</p>
         <button id="eliminar${producto.id}" value='${producto.id}' class="btn btn-dark boton-eliminar">
-        <i class="bi bi-trash-fill" value='${producto.id}'></i></button>`
+        x</button>`
         contenedor.appendChild(div);
     })
     carritoCompras = carrito;
