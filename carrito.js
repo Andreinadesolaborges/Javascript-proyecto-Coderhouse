@@ -60,7 +60,14 @@ const renderSubtotal = () => {
         subtotal = subtotal + producto.precio * producto.stock
     });
     contenedorSubtotal.innerHTML = `<h5>Subtotal: $ ${subtotal}</h5>`
+
+    actualizarContador();
     guardarCarritoStorage (carritoCompras);
+}
+const actualizarContador = () =>{
+    const contadorCarrito = document.getElementById("contador-carrito")
+    const totalCantidad = carritoCompras.reduce((acc, producto) => acc + producto.stock, 0);
+    contadorCarrito.innerHTML = totalCantidad; 
 }
 
 const eliminarProductoCarrito = (productoId) => {
@@ -69,6 +76,8 @@ const eliminarProductoCarrito = (productoId) => {
 
     pintarCarrito(carritoActualizado);
 };
+
+
 
 
 const pintarCarrito = (carrito) => {
