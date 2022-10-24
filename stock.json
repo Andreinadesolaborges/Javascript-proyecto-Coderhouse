@@ -1,0 +1,54 @@
+[
+    {
+        "id" : 1,
+        "nombre" : "Sony Auricular",
+        "precio" : 19999,
+        "stock" : 1,
+        "color" : "Negro",
+        "img" : "./img/audifonos-1.png"
+    },
+
+    {
+        "id" : 2,
+        "nombre" : "Sony Auricular",
+        "precio" : 30999,
+        "stock" : 1,
+        "color" : "Blanco",
+        "img" : "./img/audifonos-2.png"
+    },
+    {
+        "id" : 3,
+        "nombre" : "Lenovo Auricular",
+        "precio" : 14999,
+        "stock" : 1,
+        "color" : "Gris",
+        "img" : "./img/audifonos-3.png"
+    },
+    {
+        "id" : 4,
+        "nombre" : "Sony Auricular",
+        "precio" : 24999,
+        "stock" : 1,
+        "color" : "Rosa",
+        "img" : "./img/audifonos-4.png"
+    },
+    {
+        "id" : 5,
+        "nombre" : "Sony Auricular",
+        "precio" : 25999,
+        "stock" : 1,
+        "color" : "Negro",
+        "img" : "./img/audifonos-5.png"
+    },
+    {
+        "id" : 6,
+        "nombre" : "Apple Airpods",
+        "precio" : 30999,
+        "stock" : 1,
+        "color" : "Blanco",
+        "img" : "./img/audifonos-6.png"
+    }
+   
+]
+
+

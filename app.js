@@ -1,45 +1,9 @@
 import {validarProductoRepetido} from "./carrito.js";
 import {alert} from "./alerta.js";
-//Clases y constructores//
-
-class Producto {
-    constructor(id, nombre, precio, stock, color, img) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = Number(precio);
-        this.stock = stock;
-        this.color = color;
-        this.img = img;
-    }
-    actualizarStock(cantidad) {
-        this.stock = this.stock - cantidad;
-    }
-    sumarStock(cantidad){
-        this.stock = this.stock + cantidad;
-    }
-}
+import { obtenerProductos } from "./obtenerProductos.js";
 
 //Variables//
-const inventarioProductos = [];
-inventarioProductos.push(new Producto(1, "Sony Auricular", 19999, 1, "Negro", "img/audifonos-1.png"));
-inventarioProductos.push(new Producto(2, "Sony Auricular", 30999, 1, "Blanco", "img/audifonos-2.png"));
-inventarioProductos.push(new Producto(3, "Lenovo Auricular", 14999, 1, "Gris", "img/audifonos-3.png"));
-inventarioProductos.push(new Producto(4, "Sony Auricular", 24999, 1, "Rosa", "img/audifonos-4.png"));
-inventarioProductos.push(new Producto(5, "JBL Auricular", 25999, 1, "Negro", "img/audifonos-5.png"));
-inventarioProductos.push(new Producto(6, "Apple Airpods", 30999, 1, "Blanco", "img/audifonos-6.png"));
-
-const verificarStock = (producto, cantidad) => {
-
-    if (producto.stock >= cantidad) {
-        let index = inventarioProductos.indexOf(producto);
-        inventarioProductos[index].actualizarStock(cantidad);
-        return true;
-    }
-    else {
-        return false;
-    }
-
-}
+const inventarioProductos = await obtenerProductos();
 
 const ordenarMenorMayor = () => {
     inventarioProductos.sort((a, b) => a.precio - b.precio);
