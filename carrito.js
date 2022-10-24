@@ -95,7 +95,6 @@ const pintarCarrito = (carrito) => {
 
     carritoCompras = carrito;
     renderSubtotal(); 
-    console.log("pinto carrito");
     
 }
 
