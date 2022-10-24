@@ -16,7 +16,7 @@ const validarProductoRepetido = (productoID) => {
     {
         productoRepetido.stock++;
         const cantidadProducto = document.getElementById(`cantidad${productoRepetido.id}`)
-        cantidadProducto.innerText = `cantidad: ${productoRepetido.stock}`;
+        cantidadProducto.innerText = `cantidad: ${productoRepetido.stock}`
         let modificacionPrecio = document.getElementById(`precio${productoRepetido.id}`)
         let precioActualizado = carritoCompras[carritoCompras.indexOf(productoRepetido)].precio * carritoCompras[carritoCompras.indexOf(productoRepetido)].stock
         modificacionPrecio.innerHTML = `${productoRepetido.nombre} ${productoRepetido.color} $${precioActualizado}`
@@ -78,8 +78,6 @@ const eliminarProductoCarrito = (productoId) => {
 };
 
 
-
-
 const pintarCarrito = (carrito) => {
     const contenedor = document.getElementById('carrito-contenedor');
 
@@ -94,8 +92,10 @@ const pintarCarrito = (carrito) => {
         x</button>`
         contenedor.appendChild(div);
     })
+
     carritoCompras = carrito;
     renderSubtotal(); 
+    console.log("pinto carrito");
     
 }
 

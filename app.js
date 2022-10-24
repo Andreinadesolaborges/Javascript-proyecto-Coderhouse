@@ -1,14 +1,14 @@
 import {validarProductoRepetido} from "./carrito.js";
 import {alert} from "./alerta.js";
-import { obtenerProductos } from "./obtenerProductos.js";
+import {obtenerProductos} from "./obtenerProductos.js";
 
-//Variables//
-const inventarioProductos = await obtenerProductos();
 
-const ordenarMenorMayor = () => {
+let inventarioProductos = [];
+
+async function ordenarMenorMayor() {
     inventarioProductos.sort((a, b) => a.precio - b.precio);
 }
-const ordenarMayorMenor = () => {
+async function ordenarMayorMenor() {
     inventarioProductos.sort((a, b) => b.precio - a.precio);
 }
 
@@ -30,9 +30,25 @@ function sortMayor() {
     actualizarListaProductos();
 }
 
-const mostrarProductos = (inventarioProductos) => {
-    const contenedorProductos = document.getElementById('containerProductos')
+const mostrarProductos = async () => {
+    inventarioProductos = await obtenerProductos();
+    pintarProductos (inventarioProductos);
+}
 
+const actualizarListaProductos = async () => {
+
+    const contenedorProductos = document.querySelectorAll('#containerProductos div')
+
+    contenedorProductos.forEach(producto => {
+        producto.remove();
+    })
+
+    pintarProductos(inventarioProductos);
+
+}
+
+const pintarProductos = async (inventarioProductos) => {
+    const contenedorProductos = document.getElementById('containerProductos')
     inventarioProductos.forEach(producto => {
         const div = document.createElement('div')
         div.classList.add('col-12')
@@ -65,18 +81,6 @@ const mostrarProductos = (inventarioProductos) => {
     })
 }
 
-const actualizarListaProductos = () => {
-
-    const contenedorProductos = document.querySelectorAll('#containerProductos div')
-
-    contenedorProductos.forEach(producto => {
-        producto.remove();
-    })
-
-    mostrarProductos(inventarioProductos);
-
-}
-
 let buscador = document.getElementById("miInput");
 
 buscador.onkeyup = () => {
@@ -85,7 +89,6 @@ buscador.onkeyup = () => {
     filter = input.value.toUpperCase();
     section = document.getElementById("containerProductos");
     div = section.getElementsByTagName("div");
-    var productosHallados = 0;
 
     for (i = 0; i < div.length; i++) {
         h3 = div[i].getElementsByTagName("h3")[0];
@@ -107,6 +110,6 @@ buscador.onkeyup = () => {
 }
 
 
-mostrarProductos(inventarioProductos);
 
-export {inventarioProductos}
+
+export {inventarioProductos, mostrarProductos};

@@ -8,4 +8,4 @@ const obtenerProductos = async () => {
     }
 }
 
-export {obtenerProductos}
+export {obtenerProductos};
