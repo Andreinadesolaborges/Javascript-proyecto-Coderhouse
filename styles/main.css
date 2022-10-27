@@ -56,6 +56,10 @@ h3 {
     --bs-btn-border-color: none;
 }
 
+.bi-bag-heart-fill{
+    color: rgb(102, 16, 242);
+}
+
 .btn-close:focus {
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(103, 16, 242, 0.2);
@@ -84,10 +88,6 @@ h3 {
     border-bottom: 1px solid #dee2e6;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
-}
-
-.bi-trash-fill{
-    opacity: 0.6;
 }
 
 .contador-carrito{

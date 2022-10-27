@@ -34,48 +34,20 @@
         </nav>
     </header>
     <main>
-        <div class="container-fluid">
-            <div class="row m4">
-
-                <div class="col-md-7 p-5">
-                    <h4 class="mb-3">Completa tus datos para enviarte los datos de pago a tu email:</h4>
-                    <form id="checkout-form" class="needs-validation" novalidate="">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="firstName">Nombre</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value=""
-                                    required="">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="lastName">Apellido</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value=""
-                                    required="">
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="email">Email <span class="text-muted"> </span></label>
-                            <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com"
-                                required="">
-                        </div>
-
-                        <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block colorBgBtn" type="submit">Terminar
-                            compra</button>
-                        <hr class="mb-5">
-                    </form>
-                </div>
-                <div class="col-md-4 p-5">
-                    <h4>Tu carrito</h4>
-                    <div class="border p-4">
-                        <div id="checkout-carrito"></div>
-                        <div id="checkout-subtotal"></div>
-                    </div>
-
-                </div>
+        <div class="container-fluid p-5">
+        <div class="row m4">
+            <div class="col-md-3 p-5">
             </div>
+            <div class="col-md-6 p-5 border">
+            <h1 class="mb-3 text-center"><i class="bi bi-bag-heart-fill"></i></h1>
+            <h3 class="mb-3 text-center">¡Tu compra fue realizada con éxito! </h3>
+            <h5 class="mb-3 text-center">En las próximas 24 horas te llegará un correo para realizar el pago y recibir tus productos.</h5>
+            </div>
+            <div class="col-md-3 p-5">
+            </div>
+                
         </div>
-
+        </div>
     </main>
 
     <!--JQuery-->
@@ -92,11 +64,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!--Mi script-->
-
-    <script src="checkoutActions.js" type="module"></script>
-    <script src="carrito.js" type="module"></script>
     <script src="storage.js" type="module"></script>
-   
 </body>
 
 </html>

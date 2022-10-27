@@ -1,6 +1,6 @@
-import {validarProductoRepetido} from "./carrito.js";
-import {alert} from "./alerta.js";
-import {obtenerProductos} from "./obtenerProductos.js";
+import { validarProductoRepetido } from "./carrito.js";
+import { alert } from "./alerta.js";
+import { obtenerProductos } from "./obtenerProductos.js";
 
 
 let inventarioProductos = [];
@@ -14,11 +14,17 @@ async function ordenarMayorMenor() {
 
 let sortMayorBtn = document.getElementById("buttonSortMayor");
 
-sortMayorBtn.addEventListener("click", sortMayor);
+if (sortMayorBtn) {
+    sortMayorBtn.addEventListener("click", sortMayor);
+}
+
 
 let sortMenorBtn = document.getElementById("buttonSortMenor");
 
-sortMenorBtn.addEventListener("click", sortMenor);
+if (sortMenorBtn) {
+    sortMenorBtn.addEventListener("click", sortMenor);
+}
+
 
 function sortMenor() {
     ordenarMenorMayor();
@@ -32,7 +38,7 @@ function sortMayor() {
 
 const mostrarProductos = async () => {
     inventarioProductos = await obtenerProductos();
-    pintarProductos (inventarioProductos);
+    pintarProductos(inventarioProductos);
 }
 
 const actualizarListaProductos = async () => {
@@ -82,34 +88,33 @@ const pintarProductos = async (inventarioProductos) => {
 }
 
 let buscador = document.getElementById("miInput");
+if (buscador) {
+    buscador.onkeyup = () => {
+        var input, filter, section, div, h3, i;
+        input = document.getElementById("miInput");
+        filter = input.value.toUpperCase();
+        section = document.getElementById("containerProductos");
+        div = section.getElementsByTagName("div");
 
-buscador.onkeyup = () => {
-    var input, filter, section, div, h3, i;
-    input = document.getElementById("miInput");
-    filter = input.value.toUpperCase();
-    section = document.getElementById("containerProductos");
-    div = section.getElementsByTagName("div");
-
-    for (i = 0; i < div.length; i++) {
-        h3 = div[i].getElementsByTagName("h3")[0];
-        if (h3) {
-            var palabrasEnFiltro = filter.split(' ');
-            var hallado = 0;
-            for (var filtro of palabrasEnFiltro) {
-                if (h3.innerHTML.toUpperCase().indexOf(filtro) > -1) {
-                    hallado++;
+        for (i = 0; i < div.length; i++) {
+            h3 = div[i].getElementsByTagName("h3")[0];
+            if (h3) {
+                var palabrasEnFiltro = filter.split(' ');
+                var hallado = 0;
+                for (var filtro of palabrasEnFiltro) {
+                    if (h3.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                        hallado++;
+                    }
                 }
-            }
-            if (hallado === palabrasEnFiltro.length) {
-                div[i].style.display = "";
-            } else {
-                div[i].style.display = "none";
+                if (hallado === palabrasEnFiltro.length) {
+                    div[i].style.display = "";
+                } else {
+                    div[i].style.display = "none";
+                }
             }
         }
     }
 }
 
 
-
-
-export {inventarioProductos, mostrarProductos};
+export { inventarioProductos, mostrarProductos };

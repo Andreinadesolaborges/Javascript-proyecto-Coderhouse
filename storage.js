@@ -7,4 +7,8 @@ const obtenerCarritoStorage = () => {
     return carritoStorage;
 }
 
-export {guardarCarritoStorage, obtenerCarritoStorage}
+const eliminarCarritoStorage = () => {
+    localStorage.removeItem('carrito');
+}
+
+export {guardarCarritoStorage, obtenerCarritoStorage, eliminarCarritoStorage}

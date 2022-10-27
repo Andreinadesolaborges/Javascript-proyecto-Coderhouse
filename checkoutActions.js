@@ -1,4 +1,5 @@
-import { obtenerCarritoStorage } from "./storage.js"
+import { eliminarCarritoStorage, obtenerCarritoStorage } from "./storage.js"
+
 
 //Variables Checkout//
 
@@ -37,12 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const carrito = obtenerCarritoStorage();
 
-
             e.preventDefault();
+
             if (validarForm() == false) {
                 return;
             }
+
             else {
+               
+                
+                let carritoString = "Productos: ";
+                carrito.forEach (producto => {
+                    carritoString += "[(ID: " + producto.id + ") "+producto.nombre + " " + producto.color + " x" + producto.stock + "] ";
+                })
+
+                let subtotal = 0;
+                carrito.forEach(producto => {
+                    subtotal = subtotal + producto.precio * producto.stock
+                });
+
                 // code fragment
                 const body = {
                     service_id: 'service_b8lfzma',
@@ -51,17 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     template_params: {
                         'from_name': checkoutEmail.value,
                         'to_name': checkoutNombre.value,
-                        'to_lastname': checkoutApellido.value
+                        'to_lastname': checkoutApellido.value,
+                        'carrito': carritoString,
+                        'subtotal': subtotal
                     }
                 };
-                sendEmail(body);
-            }
 
+                //sendEmail(body);
+                eliminarCarritoStorage();
+                finalizarCompra();
+            }
 
         })
     }
-
-
 })
 
 const validarForm = () => {
@@ -139,8 +155,11 @@ const pintarSubtotalCheckout = (carrito) => {
     });
     contenedorSubtotal.innerHTML = `<h5>Total: $ ${subtotal}</h5>`
 
+}
 
 
+const finalizarCompra = () => {
+    window.location="finalizarCompra.html";
 }
 
 
