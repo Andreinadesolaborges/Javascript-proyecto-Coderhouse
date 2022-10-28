@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             else {
                 let carritoString = "Productos: ";
-                carrito.forEach (producto => {
+                carrito.forEach(producto => {
                     carritoString += "[(ID: " + producto.id + ") " + producto.nombre + " " + producto.color + " x" + producto.stock + "] ";
                 })
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const body = {
                     service_id: 'service_b8lfzma',
                     template_id: 'template_1v2snr7',
-                    user_id: 'Ko1SU_-wsX8_bKvEq',
+                    user_id: 'XBX1XmuyGMnbX5Uyz',
                     template_params: {
                         'from_name': checkoutEmail.value,
                         'to_name': checkoutNombre.value,
@@ -73,10 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         'subtotal': subtotal
                     }
                 };
-
+                const btn = document.getElementById('submit-checkout')
+                btn.disable = true;
+                Toastify({
+                    text: "Espere mientras se envían los datos del formulario",
+                    duration: 3000,
+                    position: "center",
+                    style: {
+                        background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+                    },
+                }).showToast();
                 sendEmail(body);
-                eliminarCarritoStorage();
-                finalizarCompra();
+                setTimeout(() => {
+                    finalizarCompra();
+                }, 3000)
             }
 
         })
@@ -129,8 +139,7 @@ const validarForm = () => {
         }).showToast();
         return false;
     }
-    else 
-    {
+    else {
         return true;
     }
 }
@@ -165,7 +174,8 @@ const pintarSubtotalCheckout = (carrito) => {
 
 //Te lleva a la pantalla final//
 const finalizarCompra = () => {
-    window.location="finalizarCompra.html";
+    eliminarCarritoStorage();
+    window.location = "finalizarCompra.html";
 }
 
 
