@@ -13,6 +13,7 @@ const checkoutEmail = document.getElementById('email');
 //Funciones y métodos//
 
 //API emailjs para enviar datos de compra del cliente//
+
 const sendEmail = async (body) => {
 
     const settings = {
@@ -27,7 +28,10 @@ const sendEmail = async (body) => {
     const data = await response.json();
     return data;
 }
-//Pintar el carrito en la pantalla de checkout al iniciar página y función que valida un evento submit del formulario//
+
+//Pintar el carrito en la pantalla de checkout al iniciar página y función que valida un evento submit del formulario
+//Validar los datos del formulario nombre, apellido, mail. Si están se transforma todo el carrito en un string para enviar al mail del vendedor con emailjs
+
 document.addEventListener('DOMContentLoaded', () => {
 
     if (localStorage.getItem('carrito')) {
@@ -41,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
-            //Validar los datos del formulario nombre, apellido, mail. Si están se transforma todo el carrito en un string para enviar al mail del vendedor con emailjs//
             if (validarForm() == false) {
                 return;
             }
@@ -49,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else {
                 let carritoString = "Productos: ";
                 carrito.forEach (producto => {
-                    carritoString += "[(ID: " + producto.id + ") "+producto.nombre + " " + producto.color + " x" + producto.stock + "] ";
+                    carritoString += "[(ID: " + producto.id + ") " + producto.nombre + " " + producto.color + " x" + producto.stock + "] ";
                 })
 
                 let subtotal = 0;
@@ -61,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const body = {
                     service_id: 'service_b8lfzma',
                     template_id: 'template_1v2snr7',
-                    user_id: '3gclg2lklH9bUm4t9',
+                    user_id: 'Ko1SU_-wsX8_bKvEq',
                     template_params: {
                         'from_name': checkoutEmail.value,
                         'to_name': checkoutNombre.value,
