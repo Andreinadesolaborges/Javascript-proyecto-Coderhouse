@@ -12,6 +12,7 @@ const checkoutEmail = document.getElementById('email');
 
 //Funciones y métodos//
 
+//API emailjs para enviar datos de compra del cliente//
 const sendEmail = async (body) => {
 
     const settings = {
@@ -26,7 +27,7 @@ const sendEmail = async (body) => {
     const data = await response.json();
     return data;
 }
-
+//Pintar el carrito en la pantalla de checkout al iniciar página y función que valida un evento submit del formulario//
 document.addEventListener('DOMContentLoaded', () => {
 
     if (localStorage.getItem('carrito')) {
@@ -40,13 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
+            //Validar los datos del formulario nombre, apellido, mail. Si están se transforma todo el carrito en un string para enviar al mail del vendedor con emailjs//
             if (validarForm() == false) {
                 return;
             }
 
             else {
-               
-                
                 let carritoString = "Productos: ";
                 carrito.forEach (producto => {
                     carritoString += "[(ID: " + producto.id + ") "+producto.nombre + " " + producto.color + " x" + producto.stock + "] ";
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 };
 
-                //sendEmail(body);
+                sendEmail(body);
                 eliminarCarritoStorage();
                 finalizarCompra();
             }
@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
+//Validación de nombre, apellido y mail//
 const validarForm = () => {
     if (checkoutNombre.value.length == 0) {
         Toastify({
@@ -130,6 +131,8 @@ const validarForm = () => {
         return true;
     }
 }
+
+//Muestra el carrito en la página de checkout//
 const pintarCarritoCheckout = (carrito) => {
     const contenedor = document.getElementById('checkout-carrito');
     if (contenedor) {
@@ -145,7 +148,7 @@ const pintarCarritoCheckout = (carrito) => {
         pintarSubtotalCheckout(carrito);
     }
 }
-
+//Muestra el subtotal en la página de checkout//
 const pintarSubtotalCheckout = (carrito) => {
 
     const contenedorSubtotal = document.getElementById("checkout-subtotal")
@@ -157,7 +160,7 @@ const pintarSubtotalCheckout = (carrito) => {
 
 }
 
-
+//Te lleva a la pantalla final//
 const finalizarCompra = () => {
     window.location="finalizarCompra.html";
 }

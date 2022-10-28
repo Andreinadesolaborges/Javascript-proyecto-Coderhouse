@@ -1,3 +1,4 @@
+//Permite obtener productos inventario desde el JSON//
 const obtenerProductos = async () => {
     try {
         const response = await fetch ('./stock.json');

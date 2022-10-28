@@ -1,5 +1,5 @@
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
+//alerta código directamente de bootstrap//
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [

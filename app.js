@@ -2,9 +2,12 @@ import { validarProductoRepetido } from "./carrito.js";
 import { alert } from "./alerta.js";
 import { obtenerProductos } from "./obtenerProductos.js";
 
+//Funciones generales de la aplicación//
 
+//Donde guardo mis productos del inventario//
 let inventarioProductos = [];
 
+//Funciones de ordenar precios mayor a menor y viceversa//
 async function ordenarMenorMayor() {
     inventarioProductos.sort((a, b) => a.precio - b.precio);
 }
@@ -35,6 +38,8 @@ function sortMayor() {
     ordenarMayorMenor();
     actualizarListaProductos();
 }
+
+//Visualizar productos del inventario//
 
 const mostrarProductos = async () => {
     inventarioProductos = await obtenerProductos();
@@ -86,6 +91,8 @@ const pintarProductos = async (inventarioProductos) => {
         })
     })
 }
+
+//Buscador de productos por nombre y color en h3, los muestra o no dependiendo si se encuentra//
 
 let buscador = document.getElementById("miInput");
 if (buscador) {

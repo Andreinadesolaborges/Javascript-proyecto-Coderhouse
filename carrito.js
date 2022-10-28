@@ -1,9 +1,11 @@
 import { inventarioProductos } from "./app.js";
 import { guardarCarritoStorage, obtenerCarritoStorage } from "./storage.js";
 
+//Acciones del carrito de compras general//
+
 let carritoCompras = [];
 
-
+//Verifica que el producto está en el carrito. Si se encuentra le suma más stock y lo pinta con el subtotal. Si no se agrega uno nuevo//
 const validarProductoRepetido = (productoID) => {
 
     if (localStorage.getItem('carrito')) {
@@ -30,7 +32,7 @@ const validarProductoRepetido = (productoID) => {
 
     guardarCarritoStorage (carritoCompras);
 }
-
+//Se agrega un producto y pinta al carrito por medio del ID. Se muestrar los subtotales//
 const carritoIndex = (productoID) => {
 
     const contenedorCarrito = document.getElementById("carrito-contenedor")
@@ -53,6 +55,7 @@ const carritoIndex = (productoID) => {
     renderSubtotal() 
 }
 
+//Suma los precios multiplicado por el stock de cada producto y se guarda el carrito en storage al modificarse//
 const renderSubtotal = () => {
     const contenedorSubtotal = document.getElementById("carrito-subtotal")
     let subtotal = 0;
@@ -64,12 +67,13 @@ const renderSubtotal = () => {
     actualizarContador();
     guardarCarritoStorage (carritoCompras);
 }
+//Actualiza el contador de cantidad de productos en el carrito//
 const actualizarContador = () =>{
     const contadorCarrito = document.getElementById("contador-carrito")
     const totalCantidad = carritoCompras.reduce((acc, producto) => acc + producto.stock, 0);
     contadorCarrito.innerHTML = totalCantidad; 
 }
-
+//Elimina un producto particular//
 const eliminarProductoCarrito = (productoId) => {
     const carritoStorage = obtenerCarritoStorage();
     const carritoActualizado = carritoStorage.filter(producto => producto.id != productoId);
@@ -77,7 +81,7 @@ const eliminarProductoCarrito = (productoId) => {
     pintarCarrito(carritoActualizado);
 };
 
-
+//Pinta el carrito al cargar si hay algo en el local storage//
 const pintarCarrito = (carrito) => {
     const contenedor = document.getElementById('carrito-contenedor');
 
